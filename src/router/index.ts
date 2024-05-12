@@ -1,40 +1,41 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Login from '../views/Login.vue'
-import Test from '../views/Test.vue'
-import UserView from '../views/UserView.vue'
-import UserEdit from '../views/UserEdit.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'login',
-    component: Login
+    path: "/",
+    redirect: "/portfolio/skills",
+    meta: { middleware: "auth" },
   },
   {
-    path: '/test',
-    name: 'test',
-    component: Test
-  },
-  {
-    path: '/users',
-    name: 'users',
-    component: UserView
-  },
-  {
-    path: '/users/:id',
-    name: 'user-edit',
-    component: UserEdit
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+    path: "/portfolio",
+    component: () => import("@/components/DefaultLayout.vue"),
+    children: [
+      {
+        path: "skills",
+        name: "Skills",
+        component: () => import("@/views/Skills.vue"),
+      },
+      {
+        path: "projects",
+        name: "Projects",
+        component: () => import("@/views/Projects.vue"),
+      },
+      {
+        path: "work-experiences",
+        name: "WorkExperiences",
+        component: () => import("@/views/WorkExperiences.vue"),
+      },
+      {
+        path: "contact",
+        name: "Contact",
+        component: () => import("@/views/Contact.vue"),
+      },
+      {
+        path: "about",
+        name: "About",
+        component: () => import("@/views/About.vue"),
+      },
+    ]
   }
 ]
 
