@@ -8,6 +8,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/portfolio",
+    redirect: "/portfolio/skills",
     component: () => import("@/components/DefaultLayout.vue"),
     children: [
       {
