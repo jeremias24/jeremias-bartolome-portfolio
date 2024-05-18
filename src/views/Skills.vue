@@ -30,7 +30,14 @@
           <img
             class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
             :src="getAssetPath('media/logos/javascript.png')"
-            alt="SavvyCal"
+            alt="JavaScript"
+            width="158"
+            height="48"
+          />
+          <img
+            class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+            :src="getAssetPath('media/logos/typescript.png')"
+            alt="TypeScript"
             width="158"
             height="48"
           />
